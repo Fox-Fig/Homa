@@ -125,6 +125,9 @@ We attempted to port the Xray Core to WebAssembly (WASM) to eliminate the need f
 **Need a new feature?**
 If you have an idea for a feature that is missing, please let us know! We love hearing from our community.
 
+### ⚡ Acknowledgments
+This project is powered by **[Xray-core](https://github.com/XTLS/Xray-core)**.
+
 ### 📄 License
 This project is licensed under the **GPLv3** License.
 
