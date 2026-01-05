@@ -37,19 +37,35 @@
 To use Homa, you need to install two components: the Browser Extension (UI) and the Host Application (Bridge).
 
 #### Step 1: Install the Extension
-Install Homa directly from your browser's extension store:
+There are two ways to install the extension. **Method 1 (Store)** is recommended for most users, but if the links are not active yet, please use **Method 2 (Manual)**.
 
-- **Chrome / Brave / Edge:**
-  1. Download the `extension-chrome.zip` file from the releases.
-  2. Extract the zip file.
-  3. Go to `chrome://extensions/` and enable **Developer mode** (top right).
-  4. Click **Load unpacked** and select the extracted folder.
+**Method 1: Easy Install (from Browser Store)**
+*   *This method is recommended but currently disabled until official release.*
+*   Chrome / Edge / Brave: [Link coming soon...]
+*   Firefox: [Link coming soon...]
 
-- **Firefox:**
-  1. Download the `extension-firefox.zip` file from the releases.
-  2. Extract the zip file.
-  3. Go to `about:debugging#/runtime/this-firefox`.
-  4. Click **Load Temporary Add-on...** and select the `manifest.json` file inside the extracted folder.
+**Method 2: Manual Install (Preview / For Developers)**
+
+<details>
+<summary><b>🔵 Install on Chrome / Brave / Edge</b></summary>
+<br>
+
+1. Download the `extension-chrome.zip` file from the **[Releases](https://github.com/your-username/homa/releases)** page.
+2. Extract the zip file.
+3. Go to `chrome://extensions/` in your browser.
+4. Enable **Developer mode** in the top right corner.
+5. Click **Load unpacked** and select the extracted folder.
+</details>
+
+<details>
+<summary><b>🟠 Install on Firefox</b></summary>
+<br>
+
+1. Download the `extension-firefox.zip` file from the **[Releases](https://github.com/your-username/homa/releases)** page.
+2. Extract the zip file.
+3. Go to `about:debugging#/runtime/this-firefox` in your browser.
+4. Click **Load Temporary Add-on...** and select the `manifest.json` file inside the extracted folder.
+</details>
 
 #### Step 2: Install the Host Application
 The Native Host application is required for the extension to work.
