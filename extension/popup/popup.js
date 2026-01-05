@@ -1054,7 +1054,7 @@ async function checkNativeHost() {
 function downloadInstaller() {
     // Redirect to the GitHub Releases page
     // Users can choose their specific platform installer from there.
-    const url = "https://github.com/FoxFig/homa/releases/latest/";
+    const url = "https://github.com/Fox-Fig/homa/releases/latest/";
     window.open(url, '_blank');
 }
 
