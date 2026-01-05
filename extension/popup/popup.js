@@ -1052,27 +1052,9 @@ async function checkNativeHost() {
 }
 
 function downloadInstaller() {
-    const extId = chrome.runtime.id;
-    // Redirect to the Smart Installer EXE
-    // The installer executable must be hosted somewhere accessible.
-    // For now, we point to a GitHub Release placeholder.
-    // The user (developer) must compile `cmd/installer` and host it.
-
-    // Example: https://github.com/FoxFig/homa/releases/download/v1.0.0/homa-installer-<ID>.exe
-    // Since we don't have a dynamic server to bake the ID into the EXE,
-    // we rely on the user downloading "homa-installer-<ID>.exe" 
-    // OR we ask the user to rename it? 
-    // The user request said: "filename contains ID... exe identifies ID".
-    // If the server can't rename it, the user has to. 
-    // BUT, if we use a simple file server, we can't dynamic rename.
-    // Let's assume a hypothetical setup where the link works as requested.
-
-    const url = `https://github.com/FoxFig/homa/releases/latest/download/homa-installer-${extId}.exe`;
-
-    // Fallback: If we can't distribute dynamic EXEs, maybe we revert to the BAT method?
-    // But the user insisted on EXE. I will proceed with the link.
-    // Ideally, tell the user to check instructions.
-
+    // Redirect to the GitHub Releases page
+    // Users can choose their specific platform installer from there.
+    const url = "https://github.com/FoxFig/homa/releases/latest/";
     window.open(url, '_blank');
 }
 
