@@ -1,0 +1,43 @@
+{
+    "name": "Homa",
+    "description": "Powerful V2Ray Client | Powered by Foxfig",
+    "version": "1.0.0",
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAukmvAbfA4glI7bJR6XfKv4RT4Y1/dbJwlEdXVVDYKAqrSwnBfPQhjJ5lT9m4yJlmyV/KIow9fIVsCIeuonHKrxVM+pjAeOmgF2i6WNqo56ucoW6t840qwLXR5pUoIV1yGH4FcT+O8XyGROR1ezNuBqgN08hO8lXpljjAAExNS4DsEsRCzOQer3vAGPCPsvLskGV0fId1mlTENOQFfu1g1tCax7afmrdFZAFrCmffqbZJzA8tkIkxVa1g2M8tnzxMeDVlzMof+VijNZSp0k5flCJHSxToXWFYoo8CIJyrYZ/TKrgeafSrVhKfNEHzL1l/EafZrQXB5lj3YArp8mRmbwIDAQAB",
+    "manifest_version": 3,
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "homa@foxfig.lol",
+            "strict_min_version": "109.0"
+        }
+    },
+    "permissions": [
+        "nativeMessaging",
+        "proxy",
+        "storage",
+        "tabs",
+        "webRequest",
+        "activeTab",
+        "scripting",
+        "clipboardRead"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "action": {
+        "default_popup": "popup/popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    }
+}
