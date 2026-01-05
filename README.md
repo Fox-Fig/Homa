@@ -39,8 +39,17 @@ To use Homa, you need to install two components: the Browser Extension (UI) and 
 #### Step 1: Install the Extension
 Install Homa directly from your browser's extension store:
 
-- **Chrome / Brave / Edge:** [Install from Chrome Web Store](#) (Link coming soon)
-- **Firefox:** [Install from Firefox Add-ons](#) (Link coming soon)
+- **Chrome / Brave / Edge:**
+  1. Download the `extension-chrome.zip` file from the releases.
+  2. Extract the zip file.
+  3. Go to `chrome://extensions/` and enable **Developer mode** (top right).
+  4. Click **Load unpacked** and select the extracted folder.
+
+- **Firefox:**
+  1. Download the `extension-firefox.zip` file from the releases.
+  2. Extract the zip file.
+  3. Go to `about:debugging#/runtime/this-firefox`.
+  4. Click **Load Temporary Add-on...** and select the `manifest.json` file inside the extracted folder.
 
 #### Step 2: Install the Host Application
 The Native Host application is required for the extension to work.
@@ -49,8 +58,8 @@ The Native Host application is required for the extension to work.
 1. Download `homa-installer.exe` from the [Releases Page](https://github.com/your-username/homa/releases).
 2. Run the installer and follow the on-screen prompts.
 
-**macOS (Experimental):**
-> ⚠️ **Note:** The macOS version is currently experimental and untested.
+**macOS:**
+> ⚠️ **Note:** The macOS version is currently untested.
 1. Download the macOS binary.
 2. Open Terminal and run:
    ```bash
@@ -58,8 +67,8 @@ The Native Host application is required for the extension to work.
    ./homa-installer-darwin
    ```
 
-**Linux (Experimental):**
-> ⚠️ **Note:** The Linux version is currently experimental and untested.
+**Linux:**
+> ⚠️ **Note:** The Linux version is currently untested.
 1. Download the Linux binary.
 2. Open Terminal and run:
    ```bash
@@ -81,9 +90,15 @@ For developers who want to build from source or contribute:
    go mod tidy
    ```
 2. **Build:**
-   ```powershell
-   build_installers.bat
-   ```
+   - **Windows:**
+     ```powershell
+     build_installers.bat
+     ```
+   - **Linux / macOS:**
+     ```bash
+     chmod +x build_installers.sh
+     ./build_installers.sh
+     ```
 
 ### 🤝 Contribution
 Contributions are welcome! Please feel free to submit a Pull Request or open an Issue.
