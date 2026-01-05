@@ -95,13 +95,26 @@ func modifyManifestForFirefox(path string) error {
 		return err
 	}
 
-	// Remove "key" for Firefox (it uses gecko.id in browser_specific_settings)
+	// Remove "key" for Firefox
 	delete(manifest, "key")
+	delete(manifest, "oauth2") // Firefox doesn't support oauth2 key in MV3 easily or doesn't need it same way
+
+	// Add browser_specific_settings
+	browserSettings := map[string]interface{}{
+		"gecko": map[string]interface{}{
+			"id":                 "foxfig.official@proton.me",
+			"strict_min_version": "142.0",
+			"data_collection_permissions": map[string]interface{}{
+				"required": []string{"none"},
+				"optional": []string{},
+			},
+		},
+	}
+	manifest["browser_specific_settings"] = browserSettings
 
 	// Modify "background"
 	// From: "service_worker": "background.js", "type": "module"
 	// To: "page": "background.html"
-	// Note: We remove "type" because "page" doesn't need it at that level (it's in HTML)
 	if bg, ok := manifest["background"].(map[string]interface{}); ok {
 		delete(bg, "service_worker")
 		delete(bg, "type")

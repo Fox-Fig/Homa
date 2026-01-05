@@ -15,7 +15,7 @@ const (
 	DefaultExtensionID = "gpicgkilhllpbeinpfonhpealagmhblp"
 
 	// Firefox requires a specific email-like ID in manifest.json
-	FirefoxExtensionID = "homa@foxfig.lol"
+	FirefoxExtensionID = "foxfig.official@proton.me"
 )
 
 // App Structure:

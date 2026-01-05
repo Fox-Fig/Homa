@@ -1,0 +1,19 @@
+# Binaries
+release/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Go
+homa-host
+homa-installer-*
+cmd/homa-installer/embedded/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
