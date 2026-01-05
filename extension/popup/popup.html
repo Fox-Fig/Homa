@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Xray Bridge v2</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="modal.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">
+      <span class="icon">🦊</span> Homa
+    </div>
+    <div id="statusText" class="status-text disconnected">DISCONNECTED</div>
+  </header>
+
+  <!-- Speed Graph -->
+  <div class="graph-container">
+    <canvas id="trafficGraph" width="320" height="60"></canvas>
+
+    <!-- IP Info (Top Left) -->
+    <div class="ip-overlay" id="ipDisplay">
+      <img id="flag" src="" alt="🏳️" style="width: 20px; height: 15px; display: none;">
+      <span id="ipAddr">Checking...</span>
+      <span id="countryCode"></span>
+    </div>
+
+    <div class="graph-overlay">
+      <div class="stat"><small>⬇</small> <span id="downSpeed">0 KB/s</span></div>
+      <div class="stat"><small>⬆</small> <span id="upSpeed">0 KB/s</span></div>
+    </div>
+  </div>
+
+  <!-- Actions & Filter -->
+  <div class="actions">
+    <div class="action-row">
+      <button id="addConfigBtn" class="action-btn">+ Add</button>
+      <button id="subsBtn" class="action-btn">📚 Subs</button>
+      <button id="sortBtn" class="action-btn" title="Sort by Latency">📶 Sort</button>
+      <button id="testAllBtn" class="action-btn">⚡Test All</button>
+      <button id="quickUpdateBtn" class="action-btn" title="Update All Subs">🔄</button>
+    </div>
+    <div class="filter-row">
+      <select id="subFilter" class="filter-select">
+        <option value="all">View: All Configs</option>
+        <option value="manual">Manual / No Sub</option>
+      </select>
+      <button id="settingsBtn" class="action-btn" style="flex: 0 0 auto; width: 40px;">⚙️</button>
+      <button id="infoBtn" class="action-btn" style="flex: 0 0 auto; width: 40px; margin-left: 5px;">ℹ️</button>
+    </div>
+  </div>
+  </div>
+
+  <!-- Server List -->
+  <div class="server-list-container" id="serverList"></div>
+
+  <!-- Subscriptions Modal -->
+  <div id="subsModal" class="modal hidden">
+    <div class="modal-content">
+      <h3 class="modal-title">📚 Subscriptions</h3>
+      <div class="modal-actions" style="margin-bottom: 10px;">
+        <button id="updateAllSubsBtn" class="action-btn primary full-width">🔄 Update All Subscriptions</button>
+      </div>
+      <div id="subsList" class="subs-list">
+        <!-- Subs injected here -->
+      </div>
+      <div class="modal-actions right">
+        <button id="closeSubsBtn" class="action-btn danger">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-content">
+      <h3 class="modal-title">⚙️ SYSTEM SETTINGS</h3>
+
+      <div class="input-group">
+        <button id="clearConfigsBtn" class="action-btn danger full-width">🗑 DELETE ALL CONFIGS</button>
+      </div>
+
+      <div class="input-group">
+        <label>⛔ Bypass List (Router Rules)</label>
+        <textarea id="bypassList" placeholder="<local>&#10;192.168.0.0/16&#10;*.ir"></textarea>
+      </div>
+
+      <div class="input-group">
+        <label>⚡ Ping Concurrency (1-50)</label>
+        <input type="number" id="concurrencyInput" value="10" min="1" max="50">
+      </div>
+
+      <div class="modal-actions">
+        <button id="saveSettingsBtn" class="action-btn primary">💾 SAVE</button>
+        <button id="closeSettingsBtn" class="action-btn danger">❌ CLOSE</button>
+      </div>
+    </div>
+  </div>
+  <!-- Info Modal -->
+  <div id="infoModal" class="modal hidden">
+    <div class="modal-content info-content">
+      <h2 class="modal-title">homa</h2>
+      <p class="info-desc">
+        Homa is a symbol of happiness and bliss in Persian legends, flying freely in the skies!
+      </p>
+
+      <div class="info-icons">
+        <a href="https://github.com/v2ray/v2ray-core" target="_blank" class="info-icon" title="GitHub">
+          <!-- Helper: GitHub Icon -->
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+        </a>
+        <!-- Blog Icon (Using Book/Pen style) -->
+        <a href="#" target="_blank" class="info-icon" title="Blog">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+            <path
+              d="M19 2h-14c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2zm0 18h-14v-16h14v16zm-12-6h9v-2h-9v2zm0 4h9v-2h-9v2zm0-8h9v-2h-9v2z" />
+          </svg>
+        </a>
+      </div>
+
+      <p class="subtitle">Powered by <a href="https://t.me/FoxFig" target="_blank" class="foxfig-link">Foxfig</a></p>
+
+
+      <p style="margin-top: 20px; font-size: 0.8em; color: var(--dim);">Version 1.0.0</p>
+
+      <div class="modal-actions">
+        <button id="closeInfoBtn" class="modal-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dialog Modal (Alert/Confirm/Prompt) -->
+  <div id="dialogModal" class="modal hidden" style="z-index: 200;">
+    <div class="modal-content" style="max-width: 300px;">
+      <h3 id="dialogTitle" class="modal-title">Message</h3>
+      <div id="dialogBody" style="margin-bottom: 15px; color: #eee; font-size: 15px; white-space: pre-wrap;"></div>
+
+      <div id="dialogInputContainer" class="input-group hidden">
+        <input type="text" id="dialogInput" class="full-width">
+      </div>
+
+      <div class="modal-actions right" id="dialogActions">
+        <button id="dialogBtnCancel" class="action-btn danger">Cancel</button>
+        <button id="dialogBtnOk" class="action-btn primary">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Button -->
+  <div class="footer">
+    <button id="connectBtn" class="main-btn">CONNECT</button>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+
+</html>
