@@ -28,8 +28,15 @@ jobs:
       - name: Zip Extensions
         run: |
           cd release
-          zip -r extension-chrome.zip extension-chrome
-          zip -r extension-firefox.zip extension-firefox
+          
+          cd extension-chrome
+          zip -r ../extension-chrome.zip .
+          cd ..
+          
+          cd extension-firefox
+          zip -r ../extension-firefox.zip .
+          cd ..
+          
           cd ..
 
       - name: Generate Release Notes
