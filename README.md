@@ -70,29 +70,21 @@ There are two ways to install the extension. **Method 1 (Store)** is recommended
 #### Step 2: Install the Host Application
 The Native Host application is required for the extension to work.
 
+For a fast and automated installation, simply copy and paste the appropriate command for your OS into your terminal:
+
 **Windows:**
-1. Download `homa-installer.exe` from the [Releases Page](https://github.com/your-username/homa/releases).
-2. Run the installer and follow the on-screen prompts.
+Open PowerShell and run:
+```powershell
+irm https://raw.githubusercontent.com/foxfig/homa/main/install.ps1 | iex
+```
 
-**macOS:**
-> ⚠️ **Note:** The macOS version is currently untested.
-1. Download the macOS binary.
-2. Open Terminal and run:
-   ```bash
-   chmod +x homa-installer-darwin
-   ./homa-installer-darwin
-   ```
+**macOS and Linux:**
+Open Terminal and run:
+```bash
+curl -fsSL https://raw.githubusercontent.com/foxfig/homa/main/install.sh | bash
+```
 
-**Linux:**
-> ⚠️ **Note:** The Linux version is currently untested.
-1. Download the Linux binary.
-2. Open Terminal and run:
-   ```bash
-   chmod +x homa-installer-linux
-   ./homa-installer-linux
-   ```
-
-**Done!** You can now open Homa in your browser and connect.
+**Done!** The installer will run automatically. You can now open Homa in your browser and connect.
 
 ---
 

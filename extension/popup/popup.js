@@ -1,6 +1,6 @@
 // popup.js
 import { StorageManager } from '../lib/storage_manager.js';
-import { ConfigParser } from '../lib/config.js';
+import { ConfigParser } from '../lib/parser.js';
 
 // Elements
 const connectBtn = document.getElementById('connectBtn');
@@ -346,12 +346,24 @@ function renderServerList() {
             div.className = 'server-item';
             div.dataset.id = srv.id;
 
+            let protoEmoji = "🛡️";
+            switch(srv.protocol.toLowerCase()) {
+                case "vless": protoEmoji = "🔵"; break;
+                case "vmess": protoEmoji = "🟣"; break;
+                case "trojan": protoEmoji = "🔴"; break;
+                case "shadowsocks": protoEmoji = "🦇"; break;
+                case "wireguard": protoEmoji = "🛜"; break;
+                case "json": protoEmoji = "⚙️"; break;
+                case "socks": protoEmoji = "🧦"; break;
+                case "http": protoEmoji = "🌐"; break;
+            }
+
             // Initial Structure
             div.innerHTML = `
                 <div class="srv-info">
                     <div class="srv-name">${srv.name}</div>
                     <div class="srv-meta">
-                        <span class="srv-proto">${srv.protocol.toUpperCase()}</span>
+                        <span class="srv-proto">${protoEmoji} ${srv.protocol.toUpperCase()}</span>
                         <span class="srv-ping"></span>
                     </div>
                 </div>

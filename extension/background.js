@@ -94,7 +94,7 @@ const proxyHelper = {
         const defaultBypass = ["<local>", "192.168.0.0/16", "*.ir", "ir", "geoip:ir"];
         const bypassArr = res.bypass_list || defaultBypass;
 
-        const isFirefox = (typeof browser !== 'undefined');
+        const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
 
         let config = {};
 
@@ -142,7 +142,7 @@ const proxyHelper = {
         }
     },
     clear: () => {
-        const isFirefox = (typeof browser !== 'undefined');
+        const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
         if (isFirefox) {
             const api = (typeof browser !== 'undefined') ? browser : chrome;
             // Firefox clear might just remain 'system' or 'none'
@@ -210,7 +210,7 @@ chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
             native.sendAsync({ cmd: "TEST", config: req.config })
                 .then(res => sendResponse(res))
                 .catch(err => {
-                    console.error("Ping Error:", err);
+                    console.info("Ping Error (Host may not be installed):", err.message);
                     sendResponse({ error: err.message });
                 });
             return true; // Async wait
@@ -250,7 +250,7 @@ chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
                     }
                 })
                 .catch(err => {
-                    console.error("Ping Failed:", err);
+                    console.info("Ping Failed (Host may not be installed):", err.message);
                     sendResponse({ error: err.message });
                 });
             return true; // Async wait
