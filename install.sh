@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-REPO="foxfig/homa"
+REPO="Fox-Fig/Homa"
 TMP_DIR="/tmp/homa-install"
 
 echo "======================================"

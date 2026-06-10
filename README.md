@@ -50,7 +50,7 @@ There are two ways to install the extension. **Method 1 (Store)** is recommended
 <summary><b>🔵 Install on Chrome / Brave / Edge</b></summary>
 <br>
 
-1. Download the `extension-chrome.zip` file from the **[Releases](https://github.com/your-username/homa/releases)** page.
+1. Download the `extension-chrome.zip` file from the **[Releases](https://github.com/Fox-Fig/Homa/releases)** page.
 2. Extract the zip file.
 3. Go to `chrome://extensions/` in your browser.
 4. Enable **Developer mode** in the top right corner.
@@ -61,7 +61,7 @@ There are two ways to install the extension. **Method 1 (Store)** is recommended
 <summary><b>🟠 Install on Firefox</b></summary>
 <br>
 
-1. Download the `extension-firefox.zip` file from the **[Releases](https://github.com/your-username/homa/releases)** page.
+1. Download the `extension-firefox.zip` file from the **[Releases](https://github.com/Fox-Fig/Homa/releases)** page.
 2. Extract the zip file.
 3. Go to `about:debugging#/runtime/this-firefox` in your browser.
 4. Click **Load Temporary Add-on...** and select the `manifest.json` file inside the extracted folder.
@@ -75,13 +75,13 @@ For a fast and automated installation, simply copy and paste the appropriate com
 **Windows:**
 Open PowerShell and run:
 ```powershell
-irm https://raw.githubusercontent.com/foxfig/homa/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/Fox-Fig/Homa/main/install.ps1 | iex
 ```
 
 **macOS and Linux:**
 Open Terminal and run:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/foxfig/homa/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Fox-Fig/Homa/main/install.sh | bash
 ```
 
 **Done!** The installer will run automatically. You can now open Homa in your browser and connect.
@@ -93,7 +93,7 @@ For developers who want to build from source or contribute:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/homa.git
+   git clone https://github.com/Fox-Fig/Homa.git
    cd homa
    go mod tidy
    ```

@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$repo = "foxfig/homa"
+$repo = "Fox-Fig/Homa"
 $assetName = "homa-installer-windows.exe"
 
 Write-Host "======================================"

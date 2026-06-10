@@ -51,7 +51,7 @@
 <summary><b>🔵 نصب در Chrome / Brave / Edge</b></summary>
 <br>
 
-1. فایل `extension-chrome.zip` را از بخش **[Releases](https://github.com/your-username/homa/releases)** دانلود کنید.
+1. فایل `extension-chrome.zip` را از بخش **[Releases](https://github.com/Fox-Fig/Homa/releases)** دانلود کنید.
 2. فایل را از حالت فشرده خارج کنید (Unzip).
 3. در مرورگر خود به آدرس `chrome://extensions/` بروید.
 4. دکمه **Developer mode** را در بالای صفحه (سمت راست) فعال کنید.
@@ -62,7 +62,7 @@
 <summary><b>🟠 نصب در Firefox</b></summary>
 <br>
 
-1. فایل `extension-firefox.zip` را از بخش **[Releases](https://github.com/your-username/homa/releases)** دانلود کنید.
+1. فایل `extension-firefox.zip` را از بخش **[Releases](https://github.com/Fox-Fig/Homa/releases)** دانلود کنید.
 2. فایل را از حالت فشرده خارج کنید.
 3. در نوار آدرس مرورگر، عبارت `about:debugging#/runtime/this-firefox` را تایپ کنید و اینتر بزنید.
 4. روی دکمه **Load Temporary Add-on...** کلیک کنید و فایل `manifest.json` که داخل پوشه اکسترکت شده است را انتخاب کنید.
@@ -76,13 +76,13 @@
 *   **🪟 ویندوز (Windows):**
     برنامه PowerShell را باز کرده و دستور زیر را وارد کنید:
     ```powershell
-    irm https://raw.githubusercontent.com/foxfig/homa/main/install.ps1 | iex
+    irm https://raw.githubusercontent.com/Fox-Fig/Homa/main/install.ps1 | iex
     ```
 
 *   **🍎 مک (macOS) و 🐧 لینوکس (Linux):**
     برنامه Terminal را باز کرده و دستور زیر را وارد کنید:
     ```bash
-    curl -fsSL https://raw.githubusercontent.com/foxfig/homa/main/install.sh | bash
+    curl -fsSL https://raw.githubusercontent.com/Fox-Fig/Homa/main/install.sh | bash
     ```
 
 🎉 **تمام شد!** اینستالر به‌صورت خودکار اجرا شده و مراحل نصب را انجام می‌دهد. حالا می‌توانید روی آیکون هما در مرورگر کلیک کنید و متصل شوید.
@@ -94,7 +94,7 @@
 
 ۱. **دریافت مخزن:**
    ```bash
-   git clone https://github.com/your-username/homa.git
+   git clone https://github.com/Fox-Fig/Homa.git
    cd homa
    go mod tidy
    ```
