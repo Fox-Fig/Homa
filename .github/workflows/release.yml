@@ -42,6 +42,12 @@ jobs:
         with:
           go-version: '1.23' 
 
+      - name: Update Manifest Version
+        run: |
+          RAW_VERSION="${TAG_NAME#v}"
+          echo "Updating manifest version to $RAW_VERSION"
+          jq ".version = \"$RAW_VERSION\"" extension/manifest.json > tmp.json && mv tmp.json extension/manifest.json
+
       - name: Build All Artifacts
         run: |
           chmod +x build_installers.sh
