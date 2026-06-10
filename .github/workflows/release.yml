@@ -4,6 +4,17 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g. v1.2.0)'
+        required: true
+        type: string
+      prerelease:
+        description: 'Publish as Pre-release?'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   build-and-release:
@@ -14,6 +25,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Set Release Variables
+        id: vars
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "TAG_NAME=${{ inputs.version }}" >> $GITHUB_ENV
+            echo "IS_PRERELEASE=${{ inputs.prerelease }}" >> $GITHUB_ENV
+          else
+            echo "TAG_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
+            echo "IS_PRERELEASE=false" >> $GITHUB_ENV
+          fi
 
       - name: Set up Go
         uses: actions/setup-go@v5
@@ -44,16 +66,16 @@ jobs:
           # Read the template
           CONTENT=$(cat .github/release_template.md)
           # Replace 'v1.0.0' with the actual tag name
-          TAG_NAME="${{ github.ref_name }}"
           echo "${CONTENT//v1.0.0/$TAG_NAME}" > RELEASE_BODY.md
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          name: ${{ github.ref_name }}
+          tag_name: ${{ env.TAG_NAME }}
+          name: ${{ env.TAG_NAME }}
           body_path: RELEASE_BODY.md
           draft: false
-          prerelease: false
+          prerelease: ${{ env.IS_PRERELEASE == 'true' }}
           files: |
             release/homa-installer-windows.exe
             release/homa-installer-linux-amd64
