@@ -42,7 +42,7 @@ There are two ways to install the extension. **Method 1 (Store)** is recommended
 **Method 1: Easy Install (from Browser Store)**
 *   *This method is recommended but currently disabled until official release.*
 *   Chrome / Edge / Brave: [Link coming soon...]
-*   Firefox: [Link coming soon...]
+*   Firefox: [Install Homa for Firefox](https://addons.mozilla.org/en-US/firefox/addon/homa/)
 
 **Method 2: Manual Install (Preview / For Developers)**
 
