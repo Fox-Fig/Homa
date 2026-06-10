@@ -29,7 +29,7 @@ ASSET_NAME="homa-installer-${OS_TARGET}-${ARCH_TARGET}"
 
 # Fetch latest release URL
 echo "Fetching latest release information..."
-LATEST_RELEASE_URL=$(curl -s "https://api.github.com/repos/${REPO}/releases/latest" | grep "browser_download_url.*${ASSET_NAME}\"" | cut -d : -f 2,3 | tr -d \")
+LATEST_RELEASE_URL=$(curl -s "https://api.github.com/repos/${REPO}/releases/latest" | grep "browser_download_url.*${ASSET_NAME}\"" | cut -d : -f 2,3 | tr -d ' "\r')
 
 if [ -z "$LATEST_RELEASE_URL" ]; then
     echo "Error: Could not find asset ${ASSET_NAME} for the latest release."
